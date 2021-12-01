@@ -1,10 +1,17 @@
 from flask import Flask, request
+import logging
+import json
 import random
 
 app = Flask(__name__)
 
+logging.basicConfig(level=logging.DEBUG)
+
+
 @app.route('/', methods=["POST"])
 def standard():
+    logging.info(request.json)
+    randon_nufro = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     text = request.json.get("request", {}).get("command")
     end = False
     if text == "выход":
@@ -29,13 +36,12 @@ def standard():
                 },
                 {
                     "title": "Рандом цифр",
-                    "url": random.randrange(1,30,2),
-                    "hide": True
+                    "hide": random.choice(randon_nufro)
 
                 },
                 {
                     "title": "Нажми на ссылку!",
-                    "url": "https://www.google.by/maps/@54.9495832,26.3622858,13.75z?hl=ru",
+                    "url": "https://www.youtube.com/watch?v=hiEM5rkx1XA",
                     "hide": True
 
                 }
@@ -44,4 +50,5 @@ def standard():
         },
         "version": "1.0"
     }
+
     return response
