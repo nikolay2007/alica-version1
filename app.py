@@ -1,5 +1,5 @@
 from flask import Flask, request
-
+import random
 
 app = Flask(__name__)
 
@@ -26,6 +26,12 @@ def standard():
                 {
                     "title": "выход",
                     "hide": True
+                },
+                {
+                    "title": "Рандом цифр",
+                    "url": random.randrange(1,30,2),
+                    "hide": True
+
                 },
                 {
                     "title": "Нажми на ссылку!",
