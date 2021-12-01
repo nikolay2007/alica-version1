@@ -36,7 +36,8 @@ def standard():
                 },
                 {
                     "title": "Рандом цифр",
-                    "hide": random.choice(randon_nufro)
+                    "hide": True,
+                    "url": random.choice(randon_nufro)
 
                 },
                 {
